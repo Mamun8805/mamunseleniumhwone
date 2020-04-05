@@ -1,26 +1,24 @@
 package aprilfifthhw;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class CheckOutChrome {
+public class CheckOutFirefox {
 
+    public static void main(String [] args){
 
-
-    public static void main (String []args) throws Exception {
-       checkoutorder();
+        checkoutfirefox();
     }
-    public static void checkoutorder() throws InterruptedException {
 
-        System.setProperty ("webdriver.chrome.driver","C:\\drivers\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.navigate().to("https://demo.broadleafcommerce.org/login");
-        String pageTitle = driver.getTitle();
-        System.out.println(pageTitle);
+    public static void checkoutfirefox(){
+        System.setProperty("webdriver.gecko.driver","C:\\drivers\\geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+        driver.navigate().to("https://www.twitter.com/");
+        String pagetitle= driver.getTitle();
+        System.out.println(pagetitle);
 
         WebElement emailBox = driver.findElement(By.xpath("//*[@id=\"username\"]"));
         emailBox.clear();
@@ -29,7 +27,7 @@ public class CheckOutChrome {
         System.out.println("Email is entered");
         Thread.sleep(500);
 
-       WebElement passwordBox = driver.findElement(By.xpath("//*[@id=\"password\"]"));
+        WebElement passwordBox = driver.findElement(By.xpath("//*[@id=\"password\"]"));
         passwordBox.clear();
         System.out.println("Clear password box");
         passwordBox.sendKeys("Infix123!");
@@ -140,4 +138,6 @@ public class CheckOutChrome {
 
 
     }
+}
+
 }
